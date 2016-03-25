@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="5" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite1" duration-ms="287" started-at="2016-03-25T19:01:21Z" finished-at="2016-03-25T19:01:21Z">
+    <groups>
+    </groups>
+    <test name="test1" duration-ms="287" started-at="2016-03-25T19:01:21Z" finished-at="2016-03-25T19:01:21Z">
+      <class name="WalmartTicketProjectTest.ticketServiceImpTest">
+        <test-method status="PASS" signature="testAvailabltNumberSeats()[pri:1, instance:WalmartTicketProjectTest.ticketServiceImpTest@1b55e1e6]" name="testAvailabltNumberSeats" duration-ms="95" started-at="2016-03-25T15:01:21Z" finished-at="2016-03-25T15:01:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAvailabltNumberSeats -->
+        <test-method status="PASS" signature="testHoldSeats()[pri:2, instance:WalmartTicketProjectTest.ticketServiceImpTest@1b55e1e6]" name="testHoldSeats" duration-ms="16" started-at="2016-03-25T15:01:21Z" finished-at="2016-03-25T15:01:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testHoldSeats -->
+        <test-method status="PASS" signature="testReservedSeats()[pri:3, instance:WalmartTicketProjectTest.ticketServiceImpTest@1b55e1e6]" name="testReservedSeats" duration-ms="112" started-at="2016-03-25T15:01:21Z" finished-at="2016-03-25T15:01:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testReservedSeats -->
+      </class> <!-- WalmartTicketProjectTest.ticketServiceImpTest -->
+      <class name="WalmartTicketProjectTest.InitializeStadiumTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:WalmartTicketProjectTest.InitializeStadiumTest@2361d10f]" name="setup" is-config="true" duration-ms="0" started-at="2016-03-25T15:01:21Z" finished-at="2016-03-25T15:01:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:WalmartTicketProjectTest.ticketServiceImpTest@1b55e1e6]" name="setup" is-config="true" duration-ms="0" started-at="2016-03-25T15:01:21Z" finished-at="2016-03-25T15:01:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="testSeats()[pri:0, instance:WalmartTicketProjectTest.InitializeStadiumTest@2361d10f]" name="testSeats" duration-ms="16" started-at="2016-03-25T15:01:21Z" finished-at="2016-03-25T15:01:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSeats -->
+        <test-method status="PASS" signature="testInitializedSeats()[pri:0, instance:WalmartTicketProjectTest.InitializeStadiumTest@2361d10f]" name="testInitializedSeats" duration-ms="0" started-at="2016-03-25T15:01:21Z" finished-at="2016-03-25T15:01:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInitializedSeats -->
+      </class> <!-- WalmartTicketProjectTest.InitializeStadiumTest -->
+    </test> <!-- test1 -->
+  </suite> <!-- Suite1 -->
+</testng-results>
