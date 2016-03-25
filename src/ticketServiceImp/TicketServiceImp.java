@@ -54,6 +54,7 @@ public class TicketServiceImp implements  TicketService {
 	
 	/**
 	 * Check this particular level has enough seats
+	 * Zigzag search through the different rows
 	 * @param levelSeats  All seats in this level
 	 * @param sh 
 	 * @return  SeatHodl object with seats hold
@@ -64,24 +65,46 @@ public class TicketServiceImp implements  TicketService {
 		Date now  = Calendar.getInstance().getTime();
 		for(int row =0; row<levelSeats.length;row++){
 			int rowSeatsNum = levelSeats[0].length;
-			for(int seatNum =0; seatNum<rowSeatsNum;seatNum++){
-				Seat currentSeat = levelSeats[row][seatNum];
-				if(currentSeat.isTempHold() || currentSeat.isFinalReserved() ){
-					continue;
-				}else{
-					if(sh.getSeats() == null){
-						sh.setSeats(new ArrayList<Seat>());
-					}
-					sh.getSeats().add(currentSeat);
-					currentSeat.setTempHold(true);
-					currentSeat.setHoldDate(now);
-					k++;
-					if(k>=needSeatNum){
-						sh.setFeedBackMessage( needSeatNum+" tickets are hold.");
-						return sh;
+			 if(row%2 ==0){
+				 for(int seatNum =0; seatNum<rowSeatsNum;seatNum++){
+						Seat currentSeat = levelSeats[row][seatNum];
+						if(currentSeat.isTempHold() || currentSeat.isFinalReserved() ){
+							continue;
+						}else{
+							if(sh.getSeats() == null){
+								sh.setSeats(new ArrayList<Seat>());
+							}
+							sh.getSeats().add(currentSeat);
+							currentSeat.setTempHold(true);
+							currentSeat.setHoldDate(now);
+							k++;
+							if(k>=needSeatNum){
+								return sh;
+								}
 						}
-				}
-			}
+					} 
+			 }else{
+				
+				 for(int seatNum =rowSeatsNum-1; seatNum>=0;seatNum--){
+						Seat currentSeat = levelSeats[row][seatNum];
+						if(currentSeat.isTempHold() || currentSeat.isFinalReserved() ){
+							continue;
+						}else{
+							if(sh.getSeats() == null){
+								sh.setSeats(new ArrayList<Seat>());
+							}
+							sh.getSeats().add(currentSeat);
+							currentSeat.setTempHold(true);
+							currentSeat.setHoldDate(now);
+							k++;
+							if(k>=needSeatNum){
+								return sh;
+								}
+						}
+					}
+			 }
+			
+			
 		}
 		
 		
