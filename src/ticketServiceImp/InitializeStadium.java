@@ -1,8 +1,17 @@
 package ticketServiceImp;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.ejb.Singleton;
+import javax.json.JsonObject;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import ticketServiceData.Seat;
 import ticketServiceData.StadiumLevel;
@@ -10,30 +19,82 @@ import ticketServiceData.StadiumLevel;
 @Singleton
 public class InitializeStadium {
 	
-	public final static  int numberOfLevels = 4;
-	public final static  int rowOnOrchestra = 25;
-	public final static  int seatNumOrchestra = 50;
-	public final static  int rowOnMain = 20;
-	public final static  int seatNumMain = 100;
-	public final static  int rowOnBalconyOne =15;
-	public final static int seatNumBalconyOne = 100;
-	public final static  int rowOnBalconyTwo =15;
-	public final static int seatNumBalconyTwo = 100;
-	public final static double priceOrchestra = 100;
-	public final static double priceMain = 75;
-	public final static double priceBalconyOne = 50;
-	public final static  double priceBalconyTwo = 40;
-	public final static  String orchestraName = "Orchestra";
-	public final static String mainName = "Main";
-	public final static String balconyOneName = "BalconyOne";
-	public final static String balconyTwoName = "BalconyTwo";
+	public static  Integer numberOfLevels  ;
+	public  static  Integer rowOnOrchestra ;
+	public  static  Integer seatNumOrchestra ;
+	public  static  Integer rowOnMain ;
+	public  static  Integer seatNumMain;
+	public  static  Integer rowOnBalconyOne;
+	public  static Integer seatNumBalconyOne;
+	public  static  Integer rowOnBalconyTwo ;
+	public  static Integer seatNumBalconyTwo ;
+	public  static Double priceOrchestra ;
+	public  static Double priceMain;
+	public  static Double priceBalconyOne;
+	public  static  Double priceBalconyTwo;
+	public  static  String orchestraName;
+	public  static String mainName;
+	public  static String balconyOneName;
+	public  static String balconyTwoName;
 	
 	
 	
 	@SuppressWarnings("null")
 	public ArrayList<Seat[][]> initializedSeats(){
-		
-		ArrayList<StadiumLevel> levels = new ArrayList<StadiumLevel>();
+		 JSONParser parser = new JSONParser();
+		 try {     
+	            Object obj = parser.parse(new FileReader("seatsInformation.json"));
+
+	            JSONObject jsonObject =  (JSONObject) obj;
+
+	            orchestraName = (String) jsonObject.get("orchestraName");
+
+	            mainName = (String) jsonObject.get("mainName");
+
+	            balconyOneName = (String) jsonObject.get("balconyOneName");
+	            
+	            balconyTwoName = (String) jsonObject.get("balconyTwoName");
+	            
+	             numberOfLevels = Integer.valueOf((String) jsonObject.get("numberOfLevels"));
+	            
+	            rowOnOrchestra = Integer.valueOf((String) jsonObject.get("rowOnOrchestra"));
+
+	            rowOnMain = Integer.valueOf((String) jsonObject.get("rowOnMain"));
+
+	            rowOnBalconyOne = Integer.valueOf((String) jsonObject.get("rowOnBalconyOne"));
+
+	            rowOnBalconyTwo = Integer.valueOf((String) jsonObject.get("rowOnBalconyTwo"));
+	            
+	            seatNumOrchestra = Integer.valueOf((String) jsonObject.get("seatNumOrchestra"));
+	            
+	            seatNumMain = Integer.valueOf((String) jsonObject.get("seatNumMain"));
+	            
+	            seatNumBalconyOne = Integer.valueOf((String) jsonObject.get("seatNumBalconyOne"));
+	            
+	            seatNumBalconyTwo = Integer.valueOf((String) jsonObject.get("seatNumBalconyTwo"));
+	            
+	            priceOrchestra = Double.valueOf( (String)jsonObject.get("priceOrchestra"));	 
+	            
+	            priceMain = Double.valueOf( (String)jsonObject.get("priceMain"));	 
+	            priceBalconyOne = Double.valueOf( (String)jsonObject.get("priceBalconyOne"));
+	            priceBalconyTwo = Double.valueOf( (String)jsonObject.get("priceBalconyTwo"));
+           
+	            
+	            
+	            
+	            
+
+	        
+	        } catch (FileNotFoundException e) {
+	            e.printStackTrace();
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        } catch (ParseException e) {
+	            e.printStackTrace();
+	        }
+	    
+		 
+		 ArrayList<StadiumLevel> levels = new ArrayList<StadiumLevel>();
 		StadiumLevel orchestraLevel = new StadiumLevel(rowOnOrchestra,seatNumOrchestra, orchestraName,priceOrchestra );
 		levels.add(orchestraLevel);
 		StadiumLevel mainLevel = new StadiumLevel(rowOnMain,seatNumMain, mainName,priceMain );

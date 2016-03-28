@@ -11,19 +11,19 @@ import ticketServiceImp.TicketServiceImp;
 import ticketServiceInter.SeatHold;
 
 public class ticketServiceImpTest {
-	int numberOfLevels = InitializeStadium.numberOfLevels;
-	int rowOnOrchestra = InitializeStadium.rowOnOrchestra;
-	int seatNumOrchestra = InitializeStadium.seatNumOrchestra;
-	int rowOnMain = InitializeStadium.rowOnMain;
-	int seatNumMain = InitializeStadium.seatNumMain;
-	int rowOnBalconyOne =InitializeStadium.rowOnBalconyOne;
-	int seatNumBalconyOne = InitializeStadium.seatNumBalconyOne;
-	int rowOnBalconyTwo =InitializeStadium.rowOnBalconyTwo;
-	int seatNumBalconyTwo = InitializeStadium.seatNumBalconyTwo;
-	double priceOrchestra = InitializeStadium.priceOrchestra;
-	double priceMain = InitializeStadium.priceMain;
-	double priceBalconyOne = InitializeStadium.priceBalconyOne;
-	double priceBalconyTwo = InitializeStadium.priceBalconyTwo;
+	int numberOfLevels ;
+	int rowOnOrchestra ;
+	int seatNumOrchestra ;
+	int rowOnMain ;
+	int seatNumMain ;
+	int rowOnBalconyOne;
+	int seatNumBalconyOne;
+	int rowOnBalconyTwo ;
+	int seatNumBalconyTwo;
+	double priceOrchestra ;
+	double priceMain ;
+	double priceBalconyOne ;
+	double priceBalconyTwo;
 	
 	InitializeStadium newStad;
 	TicketServiceImp ticketServiceI;
@@ -33,6 +33,20 @@ public class ticketServiceImpTest {
 		 newStad = new InitializeStadium();
 		 ticketServiceI = new TicketServiceImp();
 		 testEmail = "g@walmart.com";
+		 newStad.initializedSeats();
+			 numberOfLevels = InitializeStadium.numberOfLevels;
+			rowOnOrchestra = InitializeStadium.rowOnOrchestra;
+			seatNumOrchestra = InitializeStadium.seatNumOrchestra;
+			rowOnMain = InitializeStadium.rowOnMain;
+			seatNumMain = InitializeStadium.seatNumMain;
+			 rowOnBalconyOne =InitializeStadium.rowOnBalconyOne;
+			 seatNumBalconyOne = InitializeStadium.seatNumBalconyOne;
+			 rowOnBalconyTwo =InitializeStadium.rowOnBalconyTwo;
+			 seatNumBalconyTwo = InitializeStadium.seatNumBalconyTwo;
+			 priceOrchestra = InitializeStadium.priceOrchestra;
+			 priceMain = InitializeStadium.priceMain;
+			 priceBalconyOne = InitializeStadium.priceBalconyOne;
+			 priceBalconyTwo = InitializeStadium.priceBalconyTwo;
 		
 	}
 	
