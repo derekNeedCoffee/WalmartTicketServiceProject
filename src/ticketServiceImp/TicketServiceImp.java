@@ -24,8 +24,7 @@ public class TicketServiceImp implements  TicketService {
 	Hashtable<String, SeatHold>  reservedSeats;
 	int confirmationCodeCounter =0;
 
-	@Override
-	public synchronized SeatHold findAndHoldSeats(int numSeats, Integer minLevel,
+	public SeatHold findAndHoldSeats(int numSeats, Integer minLevel,
 			Integer maxLevel, String customerEmail) {
 		if(newSta == null){
 			newSta = new InitializeStadium();
@@ -113,7 +112,7 @@ public class TicketServiceImp implements  TicketService {
 	}
 
 	
-	@Override
+	
 	public int numSeatsAvailable(Integer venueLevel) {
 		if(newSta == null){
 		newSta = new InitializeStadium();
@@ -152,7 +151,6 @@ public class TicketServiceImp implements  TicketService {
 		return availableSeatsNum;
 	}
 	
-	@Override
 	public String reserveSeats(int seatHoldId, String customerEmail) {
 		SeatHold ySH = seatHolds.get(seatHoldId);
 		double totalCost = 0;
