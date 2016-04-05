@@ -79,7 +79,7 @@ public class Seat {
 	 * 
 	 * @return a boolean value for holding status.
 	 */
-	public boolean isTempHold() {
+	public synchronized boolean isTempHold() {
 		return tempHold;
 	}
 
@@ -89,7 +89,7 @@ public class Seat {
 	 * @param tempHold
 	 *            pass a boolean value for hold status
 	 */
-	public void setTempHold(boolean tempHold) {
+	public synchronized void setTempHold(boolean tempHold) {
 		this.tempHold = tempHold;
 	}
 
